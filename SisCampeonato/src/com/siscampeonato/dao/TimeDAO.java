@@ -10,7 +10,7 @@ import com.siscampeonato.repository.TimeRepository;
 public class TimeDAO implements TimeRepository{
 	
 	private Session session; 
-	
+//	hauhauhauhau
 	public TimeDAO(Session session) {
 		this.session = session;
 	}
