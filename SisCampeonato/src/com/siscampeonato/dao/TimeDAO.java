@@ -14,7 +14,7 @@ public class TimeDAO implements TimeRepository{
 	public TimeDAO(Session session) {
 		this.session = session;
 	}
-//	auisdiuasioudga
+
 	@Override
 	public List<Time> listarTodos() {
 		// TODO Auto-generated method stub
