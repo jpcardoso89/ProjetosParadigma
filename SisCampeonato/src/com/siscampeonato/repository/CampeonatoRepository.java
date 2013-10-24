@@ -12,6 +12,6 @@ public interface CampeonatoRepository {
 
 	public void excluir(Campeonato ampeonato);
 
-	public void buscarPorCodigo(Integer id);
+	public Campeonato buscarPorCodigo(Integer id);
 
 }

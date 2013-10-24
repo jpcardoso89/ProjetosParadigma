@@ -17,26 +17,22 @@ public class CampeonatoDAO implements CampeonatoRepository{
 	
 	@Override
 	public List<Campeonato> listarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.session.createCriteria(Campeonato.class).list();
 	}
 
 	@Override
 	public void guardar(Campeonato campeonato) {
-		// TODO Auto-generated method stub
-		
+		this.session.merge(campeonato);
 	}
 
 	@Override
-	public void excluir(Campeonato ampeonato) {
-		// TODO Auto-generated method stub
-		
+	public void excluir(Campeonato campeonato) {
+		this.session.merge(campeonato);
 	}
 
 	@Override
-	public void buscarPorCodigo(Integer id) {
-		// TODO Auto-generated method stub
-		
+	public Campeonato buscarPorCodigo(Integer id) {
+		return (Campeonato) this.session.get(Campeonato.class,id);
 	}
 
 }

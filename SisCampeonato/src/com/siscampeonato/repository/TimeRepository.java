@@ -9,6 +9,6 @@ public interface TimeRepository {
 	public List<Time> listarTodos();
 	public void guardar(Time time);
 	public void excluir(Time time);
-	public void buscarPorCodigo(Integer id);
+	public Time buscarPorCodigo(Integer id);
 
 }

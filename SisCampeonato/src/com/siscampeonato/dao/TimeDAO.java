@@ -22,19 +22,18 @@ public class TimeDAO implements TimeRepository{
 
 	@Override
 	public void guardar(Time time) {
-		// TODO Auto-generated method stub
+		this.session.merge(time);
 		
 	}
 
 	@Override
 	public void excluir(Time time) {
-		// TODO Auto-generated method stub
-		
+		this.session.delete(time);
 	}
 
 	@Override
-	public void buscarPorCodigo(Integer id) {
-		// TODO Auto-generated method stub
+	public Time buscarPorCodigo(Integer id) {
+		return (Time) this.session.get(Time.class, id);
 		
 	}
 
