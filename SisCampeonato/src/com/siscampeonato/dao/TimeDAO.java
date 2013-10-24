@@ -10,15 +10,14 @@ import com.siscampeonato.repository.TimeRepository;
 public class TimeDAO implements TimeRepository{
 	
 	private Session session; 
-//	hauhauhauhau
+
 	public TimeDAO(Session session) {
 		this.session = session;
 	}
 
 	@Override
 	public List<Time> listarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.session.createCriteria(Time.class).list();
 	}
 
 	@Override
