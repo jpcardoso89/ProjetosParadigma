@@ -15,6 +15,7 @@ public class CampeonatoDAO implements CampeonatoRepository{
 		this.session = session;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Campeonato> listarTodos() {
 		return this.session.createCriteria(Campeonato.class).list();

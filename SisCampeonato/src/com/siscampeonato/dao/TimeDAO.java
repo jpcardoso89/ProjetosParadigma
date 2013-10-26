@@ -15,6 +15,7 @@ public class TimeDAO implements TimeRepository{
 		this.session = session;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Time> listarTodos() {
 		return this.session.createCriteria(Time.class).list();
