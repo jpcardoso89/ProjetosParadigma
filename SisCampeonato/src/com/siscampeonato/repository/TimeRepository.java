@@ -10,5 +10,6 @@ public interface TimeRepository {
 	public void guardar(Time time);
 	public void excluir(Time time);
 	public Time buscarPorCodigo(Integer id);
+	public Time comDadosIguais(Time time);
 
 }

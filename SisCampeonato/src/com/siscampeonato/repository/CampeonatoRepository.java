@@ -10,5 +10,6 @@ public interface CampeonatoRepository {
 	public void guardar(Campeonato campeonato);
 	public void excluir(Campeonato ampeonato);
 	public Campeonato buscarPorCodigo(Integer id);
+	public Campeonato comDadosIguais(Campeonato campeonato);
 
 }

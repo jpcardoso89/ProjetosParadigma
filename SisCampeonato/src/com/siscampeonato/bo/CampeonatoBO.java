@@ -1,5 +1,6 @@
 package com.siscampeonato.bo;
 
+import com.siscampeonato.entidades.Campeonato;
 import com.siscampeonato.repository.CampeonatoRepository;
 
 public class CampeonatoBO {
@@ -10,5 +11,33 @@ public class CampeonatoBO {
 		this.campeonatos = campeonatos;
 		
 	}
+	
+	public void salvar(Campeonato campeonato) throws RegraNegocioException{
+		if (existeCampeonatoSemelhante(campeonato)) {
+			throw new RegraNegocioException("Já existe um Campeonato igual a este!");
+		}
+		
+		this.campeonatos.guardar(campeonato);
+		
+	}
+	
+	public boolean existeCampeonatoSemelhante(Campeonato campeonato){
+		Campeonato campeonatoSemelhante = this.campeonatos.comDadosIguais(campeonato);
+		
+		return campeonatoSemelhante != null && 
+				!campeonatoSemelhante.equals(campeonato);
+		
+	}
+	
+	public void excluir(Campeonato campeonato) throws RegraNegocioException{
+		if(campeonato.getTimes().isEmpty()){
+			throw new RegraNegocioException("Campeonato não pode ser exluir, pois existem times jogando!");
+		}
+		
+		this.campeonatos.excluir(campeonato);
+		
+	}
+	
+	
 
 }

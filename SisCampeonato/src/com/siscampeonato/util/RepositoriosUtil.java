@@ -13,16 +13,16 @@ public class RepositoriosUtil implements Serializable{
 	private static final long serialVersionUID = -3545602835153974064L;
 
 	@SuppressWarnings("unused")
-	private static CampeonatoRepository getCampeonatos(){
+	public static CampeonatoRepository getCampeonatos(){
 		return new CampeonatoDAO(getSession());
 	}
 	
 	@SuppressWarnings("unused")
-	private static TimeDAO getTimes(){
+	public static TimeDAO getTimes(){
 		return new TimeDAO(getSession());
 	}
 	
-	private static Session getSession() {
+	public static Session getSession() {
 		return (Session) FacesUtil.getRequestAttribute("session");
 	}
 
