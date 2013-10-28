@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Campeonato implements Serializable{
-//	trdhaiushdiuasd
+
 	private static final long serialVersionUID = -4997391991924732016L;
 	private Integer id;
 	private String nome;
