@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.OneToMany;
+
 public class Campeonato implements Serializable{
 
 	private static final long serialVersionUID = -4997391991924732016L;
@@ -29,7 +31,7 @@ public class Campeonato implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	@OneToMany(mappedBy = "campeonato")
 	public List<Time> getTimes() {
 		return times;
 	}

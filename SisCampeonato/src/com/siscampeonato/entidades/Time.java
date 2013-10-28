@@ -2,14 +2,22 @@ package com.siscampeonato.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Time implements Serializable{
-//Time
 	private static final long serialVersionUID = -8838008219075187090L;
 	private Integer id;
 	private String nome;
 	private Integer qtdPontos;
 	private Campeonato campeonato;
-
+	
+	@Id
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}
@@ -33,7 +41,9 @@ public class Time implements Serializable{
 	public void setQtdPontos(Integer qtdPontos) {
 		this.qtdPontos = qtdPontos;
 	}
-
+	
+	@ManyToOne
+	@JoinColumn(name="id_campeonato")
 	public Campeonato getCampeonato() {
 		return campeonato;
 	}

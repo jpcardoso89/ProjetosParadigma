@@ -6,7 +6,7 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cursojsf</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/siscampeonato</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">1989</property>
 
@@ -15,8 +15,7 @@
 		<property name="format_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
-		<mapping class="com.algaworks.cursojsf.financeiro.entidades.Pessoa"/>
-		<mapping class="com.algaworks.cursojsf.financeiro.entidades.Lancamento"/>
-		<mapping class="com.algaworks.cursojsf.financeiro.entidades.RamoAtividade"/>
+		<mapping class="com.siscampeonato.entidades.Time"/>
+		<mapping class="com.siscampeonato.entidades.Campeonato"/>
 	</session-factory>
 </hibernate-configuration>
