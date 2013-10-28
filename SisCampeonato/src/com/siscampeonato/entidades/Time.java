@@ -3,7 +3,7 @@ package com.siscampeonato.entidades;
 import java.io.Serializable;
 
 public class Time implements Serializable{
-//	Teste 2
+//Time
 	private static final long serialVersionUID = -8838008219075187090L;
 	private Integer id;
 	private String nome;
