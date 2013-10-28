@@ -10,12 +10,36 @@
 	
 <h:head>
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-      <title> Insert title here</title>
+      <title> Home</title>
 </h:head>
 	<h:body>
+		
 	
 		<h:form>
-	
+			<p:button value="Cadastrar Times" outcome="cadastroTime"/>
+			<p:dataTable emptyMessage="Não possui times cadastrados" value="#{consultaTimeBean.times}" 
+				var="times" paginator="5" width="80%">
+				<p:column headerText="Participar">
+						<h:selectManyCheckbox value="#{cadastroCampeonatoBean.campeonato.times}">
+							<f:selectItem Value="#{consultaTimeBean.times}" var="time" 
+								itemLabel="Selecionar" itemValue="#{time}"/>
+								
+						</h:selectManyCheckbox>
+						
+				</p:column>
+				
+				<p:column headerText="Nome">
+						<h:outputText value="#{times.nome}"/>
+				</p:column>
+				
+				<p:column headerText="Escudo">
+				</p:column>
+				
+				<p:column headerText="Ações">
+				
+				</p:column>	
+				
+			</p:dataTable>
 	
 		</h:form>
 

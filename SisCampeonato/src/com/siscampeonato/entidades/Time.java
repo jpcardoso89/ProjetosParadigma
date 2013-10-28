@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="time")
 public class Time implements Serializable{
 	private static final long serialVersionUID = -8838008219075187090L;
 	private Integer id;

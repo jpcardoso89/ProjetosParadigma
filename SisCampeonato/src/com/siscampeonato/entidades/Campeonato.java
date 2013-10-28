@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Campeonato implements Serializable{
 
 	private static final long serialVersionUID = -4997391991924732016L;
@@ -15,7 +19,9 @@ public class Campeonato implements Serializable{
 	private Integer qtdRodadas;
 	
 	private List<Time> times = new ArrayList<Time>();
-
+	
+	@Id
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}
