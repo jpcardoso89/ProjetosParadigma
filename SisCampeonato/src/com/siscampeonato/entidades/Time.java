@@ -6,20 +6,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.primefaces.model.UploadedFile;
 
 @Entity
 @Table(name="time")
 public class Time implements Serializable{
 	private static final long serialVersionUID = -8838008219075187090L;
-	private Integer id;
-	private String nome;
-	private Integer qtdPontos;
-	private Campeonato campeonato;
 	
 	@Id
 	@GeneratedValue
+	private Integer id;
+	private String nome;
+	@Lob
+	private UploadedFile escudo;
+	private Integer qtdPontos;
+	@ManyToOne
+	@JoinColumn(name="id_campeonato")
+	private Campeonato campeonato;
+	
+	
+	public UploadedFile getEscudo() {
+		return escudo;
+	}
+
+	public void setEscudo(UploadedFile escudo) {
+		this.escudo = escudo;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -44,8 +61,7 @@ public class Time implements Serializable{
 		this.qtdPontos = qtdPontos;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="id_campeonato")
+	
 	public Campeonato getCampeonato() {
 		return campeonato;
 	}
@@ -78,5 +94,7 @@ public class Time implements Serializable{
 			return false;
 		return true;
 	}
+
+	
 
 }

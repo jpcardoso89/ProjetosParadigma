@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import com.siscampeonato.bo.RegraNegocioException;
 import com.siscampeonato.bo.TimeBO;
@@ -20,7 +21,13 @@ public class CadastroTimeBean implements Serializable{
 	
 	private Time time = new Time();
 
-	public void salvar(Time time){
+	public void upload(){
+		if(time.getEscudo() != null){
+			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_INFO, "Sucesso");
+		}else{
+			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_ERROR, "Falha");
+		}
+		System.out.println("cfvgbhnjkl");
 		TimeBO timeBO = new TimeBO(RepositoriosUtil.getTimes());
 		
 		try {
@@ -32,7 +39,22 @@ public class CadastroTimeBean implements Serializable{
 		}
 	}
 	
-	public void excluir(Time time){
+	public String salvar(){
+		System.out.println("cfvgbhnjkl");
+		TimeBO timeBO = new TimeBO(RepositoriosUtil.getTimes());
+		
+		try {
+			timeBO.salvar(time);
+			this.time = new Time();
+			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_INFO, "Time salvo com sucesso!");
+		} catch (RegraNegocioException e) {
+			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_INFO, e.getMessage());
+		}
+		
+		return null;
+	}
+	
+	public void excluir(){
 		TimeBO timeBO = new TimeBO(RepositoriosUtil.getTimes());
 		timeBO.excluir(time);
 	}

@@ -14,18 +14,19 @@
 </h:head>
 	<h:body>
 	
-		<h:form>
+		<h:form enctype="multipart/form-data">
 			<p:panelGrid columns="2">
 				<f:facet name="header">
 					Cadastro de Times
 				</f:facet>
 				<h:outputText value="Nome" />
 				<h:inputText value="#{cadastroTimeBean.time.nome}"/>
+				<h:outputText value="Imagem" />
+				<p:fileUpload value="#{cadastroTimeBean.time.escudo}" mode="simple"/>
 				
-				<h:outputText ></h:outputText>
 				
 			</p:panelGrid>
-	
+				<p:commandButton value="Salvar" ajax="false" actionListener="#{cadastroTimeBean}"/>	
 		</h:form>
 
 	</h:body>
