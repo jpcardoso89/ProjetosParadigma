@@ -18,29 +18,9 @@ import com.siscampeonato.util.RepositoriosUtil;
 public class CadastroTimeBean implements Serializable{
 
 	private static final long serialVersionUID = 6663431989056851085L;
-	
 	private Time time = new Time();
-
-	public void upload(){
-		if(time.getEscudo() != null){
-			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_INFO, "Sucesso");
-		}else{
-			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_ERROR, "Falha");
-		}
-		System.out.println("cfvgbhnjkl");
-		TimeBO timeBO = new TimeBO(RepositoriosUtil.getTimes());
-		
-		try {
-			timeBO.salvar(time);
-			this.time = new Time();
-			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_INFO, "Time salvo com sucesso!");
-		} catch (RegraNegocioException e) {
-			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_INFO, e.getMessage());
-		}
-	}
 	
 	public String salvar(){
-		System.out.println("cfvgbhnjkl");
 		TimeBO timeBO = new TimeBO(RepositoriosUtil.getTimes());
 		
 		try {
