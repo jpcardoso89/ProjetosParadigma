@@ -14,6 +14,7 @@
 </h:head>
 	<h:body>
 		<p:messages id="messages" showDetail="false" showSummary="true" autoUpdate="true" closable="true" />
+		<p:button value="Consulta Time" outcome="consultaTime"/>
 		<h:form id="frm">
 			<p:panelGrid columns="2" id="panel">
 				
@@ -22,10 +23,12 @@
 				</f:facet>
 				<h:outputText value="Nome" />
 				<h:inputText value="#{cadastroTimeBean.time.nome}"/>
+				
 				<h:outputText value="Participar do Campeonato"/>
 				<p:selectBooleanCheckbox value="#{cadastroTimeBean.time.participar}" onchange="submit()" 
-					valueChangeListener="#{cadastroTimeBean.participacaoModificado}">
+					immediate="true" valueChangeListener="#{cadastroTimeBean.participacaoModificado}">
 				</p:selectBooleanCheckbox>	
+				
 				<h:outputText value="Campeonato" rendered="#{cadastroTimeBean.time.participar}"/>
 				<p:selectOneMenu id="listaCampeonatos" value="#{cadastroTimeBean.time.campeonato}" rendered="#{cadastroTimeBean.time.participar}">
 					<f:selectItem itemLabel="Selecione" noSelectionOption="true" />

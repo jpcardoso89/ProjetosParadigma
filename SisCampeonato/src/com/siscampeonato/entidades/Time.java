@@ -2,15 +2,12 @@ package com.siscampeonato.entidades;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.ForeignKey;
 
 @Entity
 @Table(name = "time")
@@ -25,7 +22,7 @@ public class Time implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_campeonato")
 	private Campeonato campeonato;
-	private Boolean participar;
+	private boolean participar;
 
 	public Integer getId() {
 		return id;
@@ -84,11 +81,11 @@ public class Time implements Serializable {
 		return true;
 	}
 
-	public Boolean isParticipar() {
+	public boolean isParticipar() {
 		return participar;
 	}
 
-	public void setParticipar(Boolean participar) {
+	public void setParticipar(boolean participar) {
 		this.participar = participar;
 	}
 
