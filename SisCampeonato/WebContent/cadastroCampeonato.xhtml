@@ -13,18 +13,24 @@
       <title>Cadastro de Campeonato</title>
 </h:head>
 	<h:body>
+		<h:messages styleClass="form-messages" errorClass="error"  
+			infoClass="info" showDetail="false" showSummary="true"/>
 		
-		<h:form>
-			<p:panelGrid columns="2">
-				<f:facet name="header">
-					Cadastro de Campeonato
-				</f:facet>
-				
+		<h:form id="frm">
+			<h1>Cadastro Campeonato</h1>
+			<h:panelGrid columns="2" id="panel">
 				<h:outputText value="Nome" />
-				<h:inputText value="#{cadastroCampeonatoBean.campeonato.nome}"/>
-				<h:outputText value=""/>
-				
-			</p:panelGrid>
+				<h:inputText value="#{cadastroCampeonatoBean.campeonato.nome}" id ="campoNome" label="Nome"/>
+			</h:panelGrid>
+			
+<!-- 			<h:outputText value="Selecione os Times"/> -->
+<!-- 			<h:selectManyCheckbox value="#{cadastroCampeonatoBean.timeSelecionado}" id="campoCheckBox" label="CheckBox"> -->
+<!-- 				<f:selectItems value="#{consultaTimeBean.times}" var="time" -->
+<!-- 								itemValue="#{time}" itemLabel="#{time.nome}"/> -->
+<!-- 				<f:converter converterId="TimeConversor"/>				 -->
+<!-- 			</h:selectManyCheckbox> -->
+			
+			<h:commandButton value="Salvar" action="#{cadastroCampeonatoBean.salvar}"/>
 	
 		</h:form>
 

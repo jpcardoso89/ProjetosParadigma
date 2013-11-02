@@ -2,40 +2,30 @@ package com.siscampeonato.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.primefaces.model.UploadedFile;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
-@Table(name="time")
-public class Time implements Serializable{
+@Table(name = "time")
+public class Time implements Serializable {
 	private static final long serialVersionUID = -8838008219075187090L;
-	
+
 	@Id
 	@GeneratedValue
 	private Integer id;
 	private String nome;
-	@Lob
-	private UploadedFile escudo;
 	private Integer qtdPontos;
 	@ManyToOne
-	@JoinColumn(name="id_campeonato")
+	@JoinColumn(name = "id_campeonato")
 	private Campeonato campeonato;
-	
-	
-	public UploadedFile getEscudo() {
-		return escudo;
-	}
-
-	public void setEscudo(UploadedFile escudo) {
-		this.escudo = escudo;
-	}
+	private Boolean participar;
 
 	public Integer getId() {
 		return id;
@@ -60,8 +50,7 @@ public class Time implements Serializable{
 	public void setQtdPontos(Integer qtdPontos) {
 		this.qtdPontos = qtdPontos;
 	}
-	
-	
+
 	public Campeonato getCampeonato() {
 		return campeonato;
 	}
@@ -95,6 +84,12 @@ public class Time implements Serializable{
 		return true;
 	}
 
-	
+	public Boolean isParticipar() {
+		return participar;
+	}
+
+	public void setParticipar(Boolean participar) {
+		this.participar = participar;
+	}
 
 }
