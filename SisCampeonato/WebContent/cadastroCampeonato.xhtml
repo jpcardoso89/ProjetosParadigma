@@ -17,20 +17,22 @@
 			infoClass="info" showDetail="false" showSummary="true"/>
 		
 		<h:form id="frm">
-			<h1>Cadastro Campeonato</h1>
-			<h:panelGrid columns="2" id="panel">
+			<p:panelGrid columns="2" id="panel">
+				<f:facet name="header">
+					Cadastro Campeonato
+				</f:facet>
 				<h:outputText value="Nome" />
 				<h:inputText value="#{cadastroCampeonatoBean.campeonato.nome}" id ="campoNome" label="Nome"/>
-			</h:panelGrid>
+			</p:panelGrid>
 			
-<!-- 			<h:outputText value="Selecione os Times"/> -->
-<!-- 			<h:selectManyCheckbox value="#{cadastroCampeonatoBean.timeSelecionado}" id="campoCheckBox" label="CheckBox"> -->
-<!-- 				<f:selectItems value="#{consultaTimeBean.times}" var="time" -->
-<!-- 								itemValue="#{time}" itemLabel="#{time.nome}"/> -->
-<!-- 				<f:converter converterId="TimeConversor"/>				 -->
-<!-- 			</h:selectManyCheckbox> -->
+			<h:outputText value="Selecione os Times"/>
+			<h:selectManyCheckbox value="#{cadastroCampeonatoBean.timeSelecionado}" id="campoCheckBox" label="CheckBox">
+				<f:selectItems value="#{consultaTimeBean.times}" var="time"
+								itemValue="#{time}" itemLabel="#{time.nome}"/>
+				<f:converter converterId="TimeConversor"/>				
+			</h:selectManyCheckbox>
 			
-			<h:commandButton value="Salvar" action="#{cadastroCampeonatoBean.salvar}"/>
+			<p:commandButton value="Salvar" action="#{cadastroCampeonatoBean.salvar}"/>
 	
 		</h:form>
 

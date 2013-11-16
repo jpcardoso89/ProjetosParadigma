@@ -4,10 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -15,15 +14,15 @@ import javax.persistence.OneToMany;
 public class Campeonato implements Serializable{
 
 	private static final long serialVersionUID = -4997391991924732016L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	// Sera obtida apartir da quantidade de time no campeonato
-	private Integer qtdRodadas;
-	
+	@OneToMany
 	private List<Time> times = new ArrayList<Time>();
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
@@ -39,21 +38,13 @@ public class Campeonato implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	@OneToMany(mappedBy = "campeonato")
+	
 	public List<Time> getTimes() {
 		return times;
 	}
 
 	public void setTimes(List<Time> times) {
 		this.times = times;
-	}
-
-	public Integer getQtdRodadas() {
-		return qtdRodadas;
-	}
-
-	public void setQtdRodadas(Integer qtdRodadas) {
-		this.qtdRodadas = qtdRodadas;
 	}
 
 	@Override

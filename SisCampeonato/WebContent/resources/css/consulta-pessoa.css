@@ -1,0 +1,30 @@
+.nome{
+	width: 250px;
+	
+}
+
+.email{
+	text-align: center;
+}
+
+.dataNascimento{
+	width: 150px;
+	text-align: center;
+}
+
+.ramo{
+	width: 150px;
+	text-align: center;
+	
+}
+
+.tipo{
+	width: 100px;
+	text-align: center;
+	
+}
+
+.acoes{
+	width: 50px;
+	text-align: center;
+}

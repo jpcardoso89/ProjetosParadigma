@@ -64,7 +64,6 @@ public class CadastroTimeBean implements Serializable{
 	}
 	
 	public void participacaoModificado(ValueChangeEvent event){
-		this.time.setParticipar((Boolean) event.getNewValue());
 		this.time.setCampeonato(null);
 		FacesContext.getCurrentInstance().renderResponse();
 		

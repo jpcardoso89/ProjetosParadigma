@@ -2,6 +2,7 @@ package com.siscampeonato.view;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -32,9 +33,11 @@ public class CadastroCampeonatoBean implements Serializable {
 	}
 
 	public void salvar() {
+		System.out.println("tghj");
 		CampeonatoBO campeonatoBO = new CampeonatoBO(
 				RepositoriosUtil.getCampeonatos());
 		try {
+			this.campeonato.setTimes(timeSelecionado);
 			campeonatoBO.salvar(this.campeonato);
 			this.campeonato = new Campeonato();
 			FacesUtil.adicionarMessage(FacesMessage.SEVERITY_INFO,

@@ -41,7 +41,6 @@ public class CampeonatoDAO implements CampeonatoRepository{
 	public Campeonato comDadosIguais(Campeonato campeonato) {
 		return (Campeonato) this.session.createCriteria(Campeonato.class)
 				.add(Restrictions.ilike("nome", campeonato.getNome()))
-				.add(Restrictions.eq("qtdRodadas", campeonato.getQtdRodadas()))
 				.uniqueResult();
 	}
 

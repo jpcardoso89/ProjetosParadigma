@@ -30,7 +30,10 @@ public class CampeonatoBO {
 	}
 	
 	public void excluir(Campeonato campeonato) throws RegraNegocioException{
-		if(campeonato.getTimes().isEmpty()){
+		
+		campeonato = this.campeonatos.buscarPorCodigo(campeonato.getId());
+		
+		if(campeonato.getTimes().size()> 0){
 			throw new RegraNegocioException("Campeonato não pode ser exluir, pois existem times jogando!");
 		}
 		

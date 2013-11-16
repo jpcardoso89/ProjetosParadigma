@@ -10,46 +10,42 @@
 	
 <h:head>
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
-      <title> Consulta Time</title>
+      <title> Consulta Campeonatos</title>
       <h:outputStylesheet library="css" name="consulta.css" />
       
 </h:head>
 	<h:body>
+	
 		<p:button value="Cadastrar Time" outcome="cadastroTime"/>
+		<p:button value="Cadastrar Campeonato" outcome="cadastroCampeonato"/>
 		<h:form>
-			<p:dataTable value="#{consultaTimeBean.times}" var="time" 
-				emptyMessage="Não possui times cadastrados!" >
+			<p:dataTable value="#{consultaCampeonatoBean.campeonatos}" var="campeonato" 
+				emptyMessage="Não possui campeonatos cadastrados!" styleClass="descricao">
 			
 				<p:column>
 					<f:facet name="header">
 						Nome
 					</f:facet>
-					<h:outputText value="#{time.nome}" />
-				</p:column>
-				
-				<p:column>
-					<f:facet name="header">
-						Campeonato
-					</f:facet>
-					<h:outputText value="#{time.campeonato.nome}" />
+					<h:outputText value="#{campeonato.nome}" />
 				</p:column>
 				
 				<p:column styleClass="acao">
 					<f:facet name="header">
 						Ações
 					</f:facet>
-					<h:commandLink action="#{consultaTimeBean.excluir}" title="Excluir">
+					
+					<h:commandLink action="#{consultaCampeonatoBean.excluir}" title="Excluir">
 						<h:graphicImage value="/imagens/excluir.png" />
 						<f:setPropertyActionListener
-							target="#{consultaTimeBean.timeSelecionado}"
-							value="#{time}" />
+							target="#{consultaCampeonatoBean.campeonatoSelecionado}"
+							value="#{campeonato}" />
 					</h:commandLink>
 					
-					<h:commandLink action="cadastroTime" title="Editar" >
+					<h:commandLink action="cadastroCampeonato" title="Editar">
 						<h:graphicImage value="/imagens/editar.png" />
 						<f:setPropertyActionListener
-							target="#{cadastroTimeBean.time}"
-							value="#{time}" />
+							target="#{cadastroCampeonatoBean.time}"
+							value="#{campeonato}" />
 					</h:commandLink>
 					
 				</p:column>

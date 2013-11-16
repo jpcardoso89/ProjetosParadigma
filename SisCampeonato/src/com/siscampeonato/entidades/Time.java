@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -15,14 +15,11 @@ public class Time implements Serializable {
 	private static final long serialVersionUID = -8838008219075187090L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private Integer qtdPontos;
 	@ManyToOne
-	@JoinColumn(name = "id_campeonato")
 	private Campeonato campeonato;
-	private boolean participar;
 
 	public Integer getId() {
 		return id;
@@ -38,14 +35,6 @@ public class Time implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public Integer getQtdPontos() {
-		return qtdPontos;
-	}
-
-	public void setQtdPontos(Integer qtdPontos) {
-		this.qtdPontos = qtdPontos;
 	}
 
 	public Campeonato getCampeonato() {
@@ -81,12 +70,5 @@ public class Time implements Serializable {
 		return true;
 	}
 
-	public boolean isParticipar() {
-		return participar;
-	}
-
-	public void setParticipar(boolean participar) {
-		this.participar = participar;
-	}
 
 }
